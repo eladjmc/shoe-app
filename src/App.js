@@ -10,14 +10,18 @@ import API from "./utils/api";
 function App() {
   const [shoes, setShoes] = useState({});
   const [shoesIds, setShoesIds] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // define an async function to retrieve the shoes data from the API
     async function fetchShoes() {
       try {
+        setIsLoading(true);
         const response = await API.getShoes();
         // use the setShoes function to update the state with the retrieved data
         setShoes(response);
+        setShoesIds(Object.keys(response));
+        setIsLoading(false);
       } catch (error) {
         console.error("Error retrieving shoes:", error);
       }
@@ -35,9 +39,19 @@ function App() {
       element: <Header />,
       children: [
         { path: "/", element: <Home /> },
-        { path: '/add-shoes', element: <AddShoes /> },
-        { path: "/shoes-list", element: <ShoesList shoesIds={shoesIds} shoes={shoes}/> },
-        { path: "/*", element: <Home />}, // need to make no such page category
+        { path: "/add-shoes", element: !isLoading && <AddShoes /> },
+        {
+          path: "/shoes-list",
+          element: !isLoading && (
+            <ShoesList
+              shoesIds={shoesIds}
+              setShoesIds={setShoesIds}
+              shoes={shoes}
+              isLoading={isLoading}
+            />
+          ),
+        },
+        { path: "/*", element: <Home /> }, // need to make no such page category
       ],
     },
   ]);

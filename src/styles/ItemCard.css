@@ -16,3 +16,29 @@
     border-top-right-radius:15px ;
     border-top-left-radius:15px ;
 }
+
+.smaller-btn {
+    transform: scale(.7);
+    font-size: 18px;
+    font-weight: 600;
+}
+.remove-btn {
+    background-color: rgb(241, 114, 114);
+}
+
+.edit-btn {
+    background-color: rgb(240, 164, 238);
+}
+
+.card-buttons-container {
+    width: 100%;
+
+}
+
+.bottom-card{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+}
