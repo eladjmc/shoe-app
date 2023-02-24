@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import React, { useState, useEffect } from "react";
 import Home from "./pages/Home";
@@ -9,7 +9,7 @@ import API from "./utils/api";
 
 function App() {
   const [shoes, setShoes] = useState({});
-  const [shoesIds,setShoesIds] = useState([])
+  const [shoesIds, setShoesIds] = useState([]);
 
   useEffect(() => {
     // define an async function to retrieve the shoes data from the API
@@ -27,20 +27,21 @@ function App() {
 
   useEffect(() => {
     setShoesIds(Object.keys(shoes));
-  }, [shoes])
-  
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add-shoes" element={<AddShoes />}></Route>
-          <Route path="/shoes-list" element={<ShoesList shoesIds={shoesIds} shoes={shoes}/>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+  }, [shoes]);
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Header />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: '/add-shoes', element: <AddShoes /> },
+        { path: "/shoes-list", element: <ShoesList shoesIds={shoesIds} shoes={shoes}/> },
+        { path: "/*", element: <Home />}, // need to make no such page category
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
