@@ -33,12 +33,8 @@ function App() {
     fetchShoes();
   }, []); // run this effect only once on component mount
 
-  // useEffect(() => {
-  //   setShoesIds(Object.keys(shoes));
-  // }, [shoes]);
-
   useEffect(() => {
-    if (!shoesToAdd.imgUrl) return; // dont run the first time
+    if (!shoesToAdd.imgUrl) return; // don't run the first time
 
     setIsLoading(true);
     async function addToDatabase() {

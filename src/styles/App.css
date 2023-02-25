@@ -42,8 +42,7 @@
   }
 }
 
-
-.shoe-list{
+.shoe-list {
   display: flex;
   height: 100%;
   min-height: 100vh;
@@ -52,9 +51,10 @@
   margin: 0 auto;
   padding: 20px 0;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
 }
-.shoes-list-title{
+.shoes-list-title {
   margin: 25px 0;
   font-size: 50px;
 }
@@ -65,7 +65,7 @@
   padding-top: 50px;
   justify-content: center;
   height: 100%;
-  min-height:calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .Home {
@@ -81,6 +81,12 @@
 }
 
 .Home img {
-  width : 410px;
+  width: 410px;
   max-width: 98%;
+}
+
+@media (max-width: 500px) {
+  .shoes-list-title {
+    font-size: 40px;
+  }
 }

@@ -13,7 +13,6 @@ const EditShoe = ({ setShoesToEdit, shoes, shoesIds }) => {
   };
 
   useEffect(() => {
-    console.log(isShoesExist(), shoesIds, shoes);
     if (shoesIds.length) {
       if (!isShoesExist()) {
         navigate("/shoes-list");
