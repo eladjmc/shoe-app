@@ -6,11 +6,13 @@ import AddShoes from "./pages/AddShoes";
 import ShoesList from "./pages/ShoesList";
 import "./styles/App.css";
 import API from "./utils/api";
+import EditShoe from "./pages/EditShoe";
 
 function App() {
   const [shoes, setShoes] = useState({});
   const [shoesIds, setShoesIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [shoesToAdd, setShoesToAdd] = useState({});
 
   useEffect(() => {
     // define an async function to retrieve the shoes data from the API
@@ -33,13 +35,54 @@ function App() {
     setShoesIds(Object.keys(shoes));
   }, [shoes]);
 
+  useEffect(() => {
+    if (!shoesToAdd.imgUrl) return;
+
+    setIsLoading(true);
+    async function addToDatabase() {
+      try {
+        await API.addShoe(shoesToAdd);
+        const response = await API.getShoes();
+
+        setShoes(response);
+        setShoesIds(Object.keys(response));
+        console.log(Object.keys(response));
+        setIsLoading(false);
+        
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    addToDatabase();
+  }, [shoesToAdd]);
+
+  // const response = await API.getShoes();
+
+  // setShoes(response);
+  // setShoesIds(Object.keys(response));
+  // console.log(Object.keys(response));
+  // setIsLoading(false);
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Header />,
       children: [
         { path: "/", element: <Home /> },
-        { path: "/add-shoes", element: !isLoading && <AddShoes /> },
+        {
+          path: "/add-shoes",
+          element: !isLoading && <AddShoes setShoesToAdd={setShoesToAdd} />,
+        },
+        {
+          path: "/edit-shoe/:itemId",
+          element: !isLoading && (
+            <EditShoe
+              shoes={shoes}
+              shoesIds={shoesIds}
+              setShoesIds={setShoesIds}
+            />
+          ),
+        },
         {
           path: "/shoes-list",
           element: !isLoading && (

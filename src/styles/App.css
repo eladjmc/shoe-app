@@ -53,3 +53,12 @@
   justify-content: center;
   gap: 25px;
 }
+
+.Add-Shoes {
+  display: flex;
+  /* align-items: center; */
+  padding-top: 50px;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+}
