@@ -33,7 +33,6 @@ const API = {
   async addShoe(newItemData) {
     try {
       await this.shoes.post(".json", newItemData);
-      console.log("Item added successfully");
       return;
     } catch (error) {
       console.error("Error adding item", error);
@@ -41,14 +40,12 @@ const API = {
   },
 
   async editShoe(updatedData, id) {
-    this.shoes
-      .patch(`/${id}.json`, updatedData)
-      .then((response) => {
-        return "Shoe updated successfully:";
-      })
-      .catch((error) => {
-        console.error("Error updating shoe:", error);
-      });
+    try {
+      await this.shoes.patch(`/${id}.json`, updatedData);
+      return;
+    } catch (error) {
+      console.error("Error updating shoe:", error);
+    }
   },
 };
 

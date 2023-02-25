@@ -6,8 +6,7 @@
     flex-direction: column;
     color: rgb(73 3 72);
     border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 0px 2px 6px -1px rgba(239, 239, 239, 0.96);
+    box-shadow: 0px 2px 3px -1px rgba(239, 239, 239, 0.96);
 }
 
 .card-img {
@@ -21,6 +20,7 @@
     transform: scale(.7);
     font-size: 18px;
     font-weight: 600;
+    cursor: pointer;
 }
 .remove-btn {
     background-color: rgb(241, 114, 114);

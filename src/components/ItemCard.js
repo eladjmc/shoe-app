@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/ItemCard.css";
+import { Link } from "react-router-dom";
 import API from "../utils/api";
 
 const ItemCard = ({ item, id, setShoesIds, shoesIds }) => {
@@ -16,7 +17,9 @@ const ItemCard = ({ item, id, setShoesIds, shoesIds }) => {
         <h2>{item.description}</h2>
         <h3>price: ${item.price}</h3>
         <div className="card-buttons-container">
+          <Link to={`/edit-shoes/${id}`}>
           <button className="button-54 smaller-btn edit-btn">Edit</button>
+          </Link>
           <button
             onClick={handleRemoveShoe}
             className="button-54 smaller-btn remove-btn"

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import API from "../utils/api";
 import "../styles/ShoesForm.css";
+import { useNavigate } from 'react-router-dom';
 
 const ShoesForm = ({
   descriptionCurrent,
   priceCurrent,
   imgUrlCurrent,
-  onUpdate,
   itemId,
   isEdit,
   setShoesToAdd,
@@ -15,6 +14,7 @@ const ShoesForm = ({
   const [imgUrl, setImgUrl] = useState(imgUrlCurrent);
   const [description, setDescription] = useState(descriptionCurrent);
   const [price, setPrice] = useState(priceCurrent);
+  const navigate = useNavigate();
 
   const validateInputs = () => {
     const imgRegex = /\.(gif|jpe?g|png|webp)$/i;
@@ -35,9 +35,6 @@ const ShoesForm = ({
     return true;
   };
 
-  const editItem = async () => {
-    const response = await API.editShoe({ imgUrl, description, price }, itemId);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,10 +42,13 @@ const ShoesForm = ({
       return;
     }
     if (isEdit) {
-      editItem();
+      setShoesToAdd([{ imgUrl, description, price },itemId]);
+      alert(`${description} Was Edited`);
     } else {
       setShoesToAdd({ imgUrl, description, price });
+      alert(`${description} Was Added`);
     }
+    navigate('/shoes-list');
   };
 
   return (

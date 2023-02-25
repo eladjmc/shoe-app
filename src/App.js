@@ -13,6 +13,7 @@ function App() {
   const [shoesIds, setShoesIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [shoesToAdd, setShoesToAdd] = useState({});
+  const [shoesToEdit, setShoesToEdit] = useState([]);
 
   useEffect(() => {
     // define an async function to retrieve the shoes data from the API
@@ -31,12 +32,12 @@ function App() {
     fetchShoes();
   }, []); // run this effect only once on component mount
 
-  useEffect(() => {
-    setShoesIds(Object.keys(shoes));
-  }, [shoes]);
+  // useEffect(() => {
+  //   setShoesIds(Object.keys(shoes));
+  // }, [shoes]);
 
   useEffect(() => {
-    if (!shoesToAdd.imgUrl) return;
+    if (!shoesToAdd.imgUrl) return; // dont run the first time
 
     setIsLoading(true);
     async function addToDatabase() {
@@ -46,9 +47,7 @@ function App() {
 
         setShoes(response);
         setShoesIds(Object.keys(response));
-        console.log(Object.keys(response));
         setIsLoading(false);
-        
       } catch (error) {
         console.error(error);
       }
@@ -56,12 +55,27 @@ function App() {
     addToDatabase();
   }, [shoesToAdd]);
 
-  // const response = await API.getShoes();
 
-  // setShoes(response);
-  // setShoesIds(Object.keys(response));
-  // console.log(Object.keys(response));
-  // setIsLoading(false);
+
+  useEffect(() => {
+    if (!shoesToEdit[0]) return; // dont run the first time
+
+    setIsLoading(true);
+    async function addToDatabase() {
+      try {
+        await API.editShoe(shoesToEdit[0],shoesToEdit[1]);
+        const response = await API.getShoes();
+
+        setShoes(response);
+        setShoesIds(Object.keys(response));
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    addToDatabase();
+  }, [shoesToEdit]);
+
 
   const router = createBrowserRouter([
     {
@@ -73,16 +87,19 @@ function App() {
           path: "/add-shoes",
           element: !isLoading && <AddShoes setShoesToAdd={setShoesToAdd} />,
         },
+
         {
-          path: "/edit-shoe/:itemId",
-          element: !isLoading && (
-            <EditShoe
-              shoes={shoes}
+          path: "/edit-shoes/:itemId",
+          element: 
+           !isLoading && <EditShoe
               shoesIds={shoesIds}
-              setShoesIds={setShoesIds}
+              shoes={shoes}
+              setShoesToEdit={setShoesToEdit}
+              
             />
-          ),
+     
         },
+
         {
           path: "/shoes-list",
           element: !isLoading && (
@@ -94,6 +111,7 @@ function App() {
             />
           ),
         },
+
         { path: "/*", element: <Home /> }, // need to make no such page category
       ],
     },
