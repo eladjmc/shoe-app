@@ -16,7 +16,7 @@ const Header = ({setIsListPage}) => {
         </Link>
 
         <Link to="/shoes-list">
-          <button onClick={()=>setIsListPage(true)} className="button-54">Shoes</button>
+          <button className="button-54">Shoes</button>
         </Link>
 
         <Link to="/add-shoes">
