@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Outlet } from 'react-router'
-import logoImage from "../assets/images/logo.png";
+import logoImage from "../assets/images/headerLogo.png";
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = ({setIsListPage}) => {
   return (
     <main className="App">
     <div className="Header">
@@ -12,15 +12,15 @@ const Header = () => {
       <div className="links-container">
 
         <Link to="/">
-          <button className="button-54">Home</button>
+          <button onClick={()=>setIsListPage(false)} className="button-54">Home</button>
         </Link>
 
         <Link to="/shoes-list">
-          <button className="button-54">Shoes</button>
+          <button onClick={()=>setIsListPage(true)} className="button-54">Shoes</button>
         </Link>
 
         <Link to="/add-shoes">
-          <button className="button-54">Add Shoes</button>
+          <button  onClick={()=>setIsListPage(false)}  className="button-54">Add Shoes</button>
         </Link>
       </div>
     </div>

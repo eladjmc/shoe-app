@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemCard from "../components/ItemCard";
 
-const ShoesList = ({ shoesIds, shoes, isLoading,setShoesIds }) => {
+const ShoesList = ({
+  shoesIds,
+  shoes,
+  isLoading,
+  setShoesIds,
+  isListPage,
+  setIsListPage,
+}) => {
+  
+  useEffect(() => {
+    setIsListPage(true);
+  
+    return () => {
+      setIsListPage(false);
+    }
+  },)
+  
   return (
     <>
-      {!isLoading && (
+      <h1 className="shoes-list-title">Shoes Collection</h1>
+      {!isLoading && isListPage && (
         <div className="shoe-list">
           {shoesIds.map((id) => {
             return (

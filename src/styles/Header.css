@@ -19,10 +19,6 @@
 
 .logo {
   height: 80%;
-  width: 150px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.712);
 }
 
 /* CSS */
@@ -51,7 +47,33 @@
 }
 
 @media (min-width: 768px) {
-  .button-54 {
+  .Header .button-54 {
     padding: 0.25em 0.75em;
+  }
+}
+@media (max-width: 500px) {
+  .Header .button-54 {
+    padding: 0.25em 0.75em;
+   width :85px;
+  }
+
+  .Header a{
+    width :85px;
+  }
+  .Header .links-container {
+    transform: scale(.8);
+    width: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:7px;
+  }
+  .Header {
+    padding: 0 5px;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .logo {
+    height: 60%;
   }
 }

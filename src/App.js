@@ -12,6 +12,7 @@ function App() {
   const [shoes, setShoes] = useState({});
   const [shoesIds, setShoesIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isListPage, setIsListPage] = useState(false);
   const [shoesToAdd, setShoesToAdd] = useState({});
   const [shoesToEdit, setShoesToEdit] = useState([]);
 
@@ -55,15 +56,13 @@ function App() {
     addToDatabase();
   }, [shoesToAdd]);
 
-
-
   useEffect(() => {
     if (!shoesToEdit[0]) return; // dont run the first time
 
     setIsLoading(true);
     async function addToDatabase() {
       try {
-        await API.editShoe(shoesToEdit[0],shoesToEdit[1]);
+        await API.editShoe(shoesToEdit[0], shoesToEdit[1]);
         const response = await API.getShoes();
 
         setShoes(response);
@@ -76,11 +75,10 @@ function App() {
     addToDatabase();
   }, [shoesToEdit]);
 
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Header />,
+      element: <Header setIsListPage={setIsListPage} />,
       children: [
         { path: "/", element: <Home /> },
         {
@@ -90,20 +88,21 @@ function App() {
 
         {
           path: "/edit-shoes/:itemId",
-          element: 
-           !isLoading && <EditShoe
+          element: !isLoading && (
+            <EditShoe
               shoesIds={shoesIds}
               shoes={shoes}
               setShoesToEdit={setShoesToEdit}
-              
             />
-     
+          ),
         },
 
         {
           path: "/shoes-list",
           element: !isLoading && (
             <ShoesList
+              isListPage={isListPage}
+              setIsListPage={setIsListPage}
               shoesIds={shoesIds}
               setShoesIds={setShoesIds}
               shoes={shoes}
