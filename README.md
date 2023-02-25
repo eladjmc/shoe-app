@@ -1,70 +1,84 @@
-# Shoe App - Admins panel
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=40&duration=3000&pause=2000&color=A849FF&center=true&width=1000&height=90&lines=Demo+Shoes+Store;Admins+Panel)](https://git.io/typing-svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
 
-## Available Scripts
+### I was given a task @AppleSeeds Bootcamp to make an admin panel for a shoes store, I was asked to make sure that:
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=16&duration=100&pause=2000&color=FF3030&repeat=false&width=1000&height=24&lines=The+user+can+Add+shoes+to+the+Database)](https://git.io/typing-svg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=16&duration=100&pause=2000&color=FF3030&repeat=false&width=1000&height=24&lines=The+user+can+Edit+shoes+from+the+Database)](https://git.io/typing-svg)
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=16&duration=100&pause=2000&color=FF3030&repeat=false&width=1000&height=24&lines=The+user+can+Delete+shoes+From+the+Database)](https://git.io/typing-svg)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My implementation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+My implementation was straightforward, I made a Navbar and a total of four Routs:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `Home page` - Logo will show on that page and it is a basic landing page
 
-### `npm run eject`
+- `Shoes collection page` - Will display all the shoes you have in the Database in a form of cards with two button: Delete / Edit.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `Edit item page` - Will display a form with the item info, you can change some of the info and submit, after that an alert with success message will appear, checking it will take you back to the collection page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `Add shoes page` - Will display a form, you can insert data for the new shoes and after clicking submit you will see an alert that indicates you added the new item. after that you will be redirected to the collection page again.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Prerequisites
+* Database server configured with the keys needed for the shoes in the app: ```{imgUrl, description, price}```
+* Set up the api.js to have the right api to access you Database
+* Small cup of coffee 😉☕
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Screenshots:
+![plot](./screenshots/screenshot1.png) 
 
-### Analyzing the Bundle Size
+![plot](./screenshots/screenshot2.png) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![plot](./screenshots/screenshot3.png) 
 
-### Making a Progressive Web App
+![plot](./screenshots/screenshot4.png) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
+## Responsiveness:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img src="./screenshots/screenshot5.png" width="300" height="500" />
 
-### Deployment
+<img src="./screenshots/screenshot6.png" width="300" height="500" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&weight=900&size=24&duration=100&pause=2000&color=28FF2D&repeat=false&width=500&height=34&lines=Deployment)](https://git.io/typing-svg)
+
+In order to run the app locally you will need to install all the dependencies from the package.json file.  
+Run the command ``` npm install ``` to install all the dependencies, after it's done you can run ``` npm start``` to start the app locally in ```localhost:3000```
+
+
+<br>
+
+
+# Summary
+By going through all the steps and making sure you have the prerequisites you:
+- Deployed the shoes store Admins panel app locally with all the dependencies needed.
+- Can Edit/Delete/Add shoes on you Admins panel app.
+
+<br>
+
+## `Feel free to contact me`:
+
+
+[![Linkedin Badge](https://img.shields.io/badge/-Elad%20Harel-blue?style=flat-square&logo=Linkedin&logoColor=white&link&=https://www.linkedin.com/in/elad-harel-06ab61183/)](https://www.linkedin.com/in/elad-harel-06ab61183/)
+[![Gmail Badge](https://img.shields.io/badge/-Eladjmc88@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Eladjmc88@gmail.com)](mailto:benben95939@gmail.com)
