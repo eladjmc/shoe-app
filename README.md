@@ -2,7 +2,7 @@
 
 <hr>
 
-### I was given a task @AppleSeeds Bootcamp to make an admin panel for a shoes store, I was asked to make sure that:
+### I was given a task @AppleSeeds Bootcamp to make an admin panel for a shoes store while making sure that:
 
 <br>
 
