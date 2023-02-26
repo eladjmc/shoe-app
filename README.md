@@ -2,7 +2,7 @@
 
 <hr>
 
-### I was given a task @AppleSeeds Bootcamp to make an admin panel for a shoes store, I was asked to make sure that:
+### I was given a task @AppleSeeds Bootcamp to make an admin panel for a shoes store while making sure that:
 
 <br>
 
@@ -33,7 +33,7 @@ My implementation was straightforward, I made a Navbar and a total of four Routs
 
 ## Prerequisites
 * Database server configured with the keys needed for the shoes in the app: ```{imgUrl, description, price}```
-* Set up the api.js to have the right api to access you Database
+* Set up the api.js to have the right api to access your own Database
 * Small cup of coffee 😉☕
 
 
